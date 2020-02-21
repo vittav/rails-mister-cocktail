@@ -3,9 +3,16 @@ class CocktailsController < ApplicationController
   def index
     @cocktails = Cocktail.all
     @search = params["search"]
-    if @search.present?
-      @name = @search["name"]
-      @cocktails = Cocktail.where(name: @name)
+    if @search == [""]
+      redirect_to cocktails_path if params["search"] == [""]
+    else
+      if @search.present?
+        # raise
+        @name = @search[0]
+        @cocktails = Cocktail.where(name: @name)
+      else
+        @cocktails = Cocktail.all
+      end
     end
   end
 
