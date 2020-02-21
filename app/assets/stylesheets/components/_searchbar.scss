@@ -1,14 +1,14 @@
 .search-form-control {
   position: relative;
-  opacity: 0.4;
+  opacity: 0.7;
 }
 
 .search-form-control .btn {
-  position: absolute;
-  height: 2rem;
-  // top: 20px;
-  bottom: 8px;
-  right: 8px;
+    position: absolute;
+    height: 2.5rem;
+    top: -4px;
+    bottom: 8px;
+    right: 0px;
 }
 
 .search-form-control .form-control {

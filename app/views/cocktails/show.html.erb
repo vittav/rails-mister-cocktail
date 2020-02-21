@@ -1,15 +1,32 @@
-<div class="container">
-<h1><%= @cocktail.name %></h1>
-<p><%= link_to "Delete", cocktail_path(@cocktail),
-      method: :delete,
-      data: { confirm: "Are you sure?" } %>  </p>
-<ul>
-<% @doses.each do |dose| %>
-<li><%= link_to "X", dose_path(dose),
-      method: :delete,
-      data: { confirm: "Are you sure?" } %>  <%= dose.description %> of <%= Ingredient.find(dose.ingredient_id).name %></li>
-<% end %>
-</ul>
-<%= render "doses/new" %>
-<%= link_to "Home", cocktails_path, class: "btn btn-primary" %>
+<div class="container m-6">
+  <div class="d-flex justify-content-around m-4">
+    <div class="photo">
+      <img src="<%= @cocktail.img_url %>" alt="">
+    </div>
+    <div class="photo">
+      <h2><%= @cocktail.name %></h2>
+      <ul>
+      <% @doses.each do |dose| %>
+      <li><%= link_to "X", dose_path(dose),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>  <%= dose.description %> of <%= Ingredient.find(dose.ingredient_id).name %></li>
+      <% end %>
+      </ul>
+      <%= link_to "Delete Cocktail", cocktail_path(@cocktail),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+    </div>
+  </div>
+  <%= render "doses/new" %>
 </div>
+  <div class="footer">
+    <div class="footer-copyright">
+      Liked it? Follow me on social Media!
+    </div>
+  <div class="footer-links">
+    <a href="https://github.com/vittav" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://www.instagram.com/vitor_tavares7/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.facebook.com/vitor.tavares07" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://twitter.com/vittav" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.linkedin.com/in/vitor-tavares-9257116a/" target="_blank"><i class="fab fa-linkedin"></i></a>
+  </div>

@@ -2,7 +2,9 @@
   <%= simple_form_for @cocktail do |f| %>
     <%= f.input :name %>
     <%= f.input :img_url %>
-    <%= f.submit "Create Cocktail", class: "btn btn-primary" %>
+    <div class="d-flex justify-content-between">
+      <%= f.submit "Create Cocktail", class: "btn btn-primary" %>
+      <%= link_to "Home", cocktails_path, class: "btn btn-primary" %>
+    </div>
   <% end %>
-<%= link_to "Home", cocktails_path, class: "btn btn-primary" %>
 </div>

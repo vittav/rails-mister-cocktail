@@ -1,7 +1,13 @@
-<p>Create a dose for <%= @cocktail.name %></p>
+<div style="color: #89a6b0;">
+<h2>Create a dose for <%= @cocktail.name %></h2>
 
 <%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.input :description  %>
-  <%= f.input :ingredient, collection: @ingredients %>
-  <%= f.submit "Add dose", class: "btn btn-primary" %>
+  <%= f.input :description, label: "Add a description to your dose"  %>
+  <%= f.input :ingredient, collection: @ingredients, label: "What is the ingredient?" %>
+  <div class="d-flex justify-content-between">
+    <%= f.submit "Add dose", class: "btn btn-primary" %>
+    <%= link_to "Home", cocktails_path, class: "btn btn-primary" %>
+  </div>
 <% end %>
+</div>
+

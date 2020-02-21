@@ -8,7 +8,7 @@ class CocktailsController < ApplicationController
     else
       if @search.present?
         # raise
-        @name = @search[0]
+        @name = @search["name"]
         @cocktails = Cocktail.where(name: @name)
       else
         @cocktails = Cocktail.all

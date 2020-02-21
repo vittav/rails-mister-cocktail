@@ -7,19 +7,22 @@
     </div>
     <div style="background-color: #0A313B;">
       <div class="container mb-4">
-          <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'search-form-control form-group' } do |f| %>
-            <%= f.input "", input_html: {value: ""}, label: false %>
+          <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'search-form-control form-group m-4' } do |f| %>
+            <%= f.input :name, input_html: {value: ""}, label: false %>
             <%= f.submit "Search", class: "btn btn-flat" %>
           <% end %>
-        <div class="cards m-4">
-          <% @cocktails.each do |cocktail| %>
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cocktail.img_url %>)">
-              <%= link_to cocktail.name, cocktail_path(cocktail) %>
-            </div>
-          <% end %>
+          <div class="cards m-4">
+            <% @cocktails.each do |cocktail| %>
+              <%= link_to cocktail_path(cocktail) do %>
+                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cocktail.img_url %>)">
+                  <%= cocktail.name %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
         </div>
         <div class="d-flex justify-content-center">
-          <%= link_to "Home", cocktails_path, class: "btn btn-flat" %>
+          <%= link_to "Home", cocktails_path, class: "btn btn-flat m-4" %>
         </div>
       </div>
     </div>
