@@ -1,7 +1,7 @@
 <div class="container m-6">
   <div class="d-flex justify-content-around m-4" style="min-height: 72vh;">
     <div class="photo">
-      <% cl_image_path @cocktail.img_url != nil ? (photo = @cocktail.img_url) : (photo = cl_image_path @cocktail.photo.key, height: 300, width: 400, crop: :fill) %>
+      <% @cocktail.img_url != nil ? (photo = @cocktail.img_url) : (photo = cl_image_path @cocktail.photo.key, height: 300, width: 400, crop: :fill) %>
       <img src="<%= photo %>" alt="">
     </div>
     <div class="photo">
