@@ -22,9 +22,8 @@
         <%= simple_form_for [@cocktail, @dose] do |f| %>
           <%= f.input :description, label: "Add a description to your dose"  %>
           <%= f.input :ingredient, collection: @ingredients, label: "What is the ingredient?" %>
-          <div class="d-flex justify-content-between">
-          </div>
-        <% end %>
+         <%= f.submit "Create Dose", class: "btn btn-primary" %>
+         <% end %>
         </div>
       </div>
       <div class="modal-footer">
